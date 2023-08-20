@@ -28,18 +28,18 @@ class Session
     private ?bool $statut = null;
 
     #[ORM\ManyToMany(targetEntity: Competence::class, inversedBy: 'sessions')]
-    private Collection $Competence;
+    private Collection $Competences;
 
     #[ORM\ManyToMany(targetEntity: Caracteristique::class, inversedBy: 'sessions')]
-    private Collection $Caracteristique;
+    private Collection $Caracteristiques;
 
     #[ORM\ManyToMany(targetEntity: Perso::class, inversedBy: 'sessions')]
     private Collection $Persos;
 
     public function __construct()
     {
-        $this->Competence = new ArrayCollection();
-        $this->Caracteristique = new ArrayCollection();
+        $this->Competences = new ArrayCollection();
+        $this->Caracteristiques = new ArrayCollection();
         $this->Persos = new ArrayCollection();
     }
 
@@ -101,13 +101,13 @@ class Session
      */
     public function getCompetence(): Collection
     {
-        return $this->Competence;
+        return $this->Competences;
     }
 
     public function addCompetence(Competence $competence): static
     {
-        if (!$this->Competence->contains($competence)) {
-            $this->Competence->add($competence);
+        if (!$this->Competences->contains($competence)) {
+            $this->Competences->add($competence);
         }
 
         return $this;
@@ -115,7 +115,7 @@ class Session
 
     public function removeCompetence(Competence $competence): static
     {
-        $this->Competence->removeElement($competence);
+        $this->Competences->removeElement($competence);
 
         return $this;
     }
@@ -125,13 +125,13 @@ class Session
      */
     public function getCaracteristique(): Collection
     {
-        return $this->Caracteristique;
+        return $this->Caracteristiques;
     }
 
     public function addCaracteristique(Caracteristique $caracteristique): static
     {
-        if (!$this->Caracteristique->contains($caracteristique)) {
-            $this->Caracteristique->add($caracteristique);
+        if (!$this->Caracteristiques->contains($caracteristique)) {
+            $this->Caracteristiques->add($caracteristique);
         }
 
         return $this;
@@ -139,7 +139,7 @@ class Session
 
     public function removeCaracteristique(Caracteristique $caracteristique): static
     {
-        $this->Caracteristique->removeElement($caracteristique);
+        $this->Caracteristiques->removeElement($caracteristique);
 
         return $this;
     }
