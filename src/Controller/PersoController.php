@@ -15,4 +15,12 @@ class PersoController extends AbstractController
             'controller_name' => 'PersoController',
         ]);
     }
+
+    #[Route('/perso/{id}', name: 'info_perso')]
+    public function info(Perso $perso): Response
+    {
+        return $this->render('perso/info.html.twig', [
+            'perso' => $perso
+        ]);
+    }
 }

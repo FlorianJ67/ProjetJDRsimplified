@@ -64,4 +64,7 @@ class CompetenceInflueCaracteristique
 
         return $this;
     }
+    public function __toString() {
+        return $this->getCompetence()->getNom().' - '.$this->getCaracteristique()->getNom();
+    }
 }

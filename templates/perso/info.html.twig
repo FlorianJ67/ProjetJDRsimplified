@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}info {{ perso.name }}{% endblock %}
+
+{% block body %}
+<div>
+    <p>Caractéristique du personnage:</p>
+    <ul>
+    {% for caracteristique in perso.caracteristique %}
+        <p>{{ caracteristique }}</p>
+    {% endfor %}
+    </ul>    
+</div>
+<div>
+    <p>Compétence du personnage:</p>
+    <ul>
+    {% for competence in perso.competence %}
+        <p>{{ competence }}</p>
+    {% endfor %}
+    </ul>    
+</div>
+{% endblock %}

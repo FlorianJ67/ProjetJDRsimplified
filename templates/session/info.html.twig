@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Info session {{ session.name }}{% endblock %}
+{% block body %}
+<div>
+    <p>Caractéristique de la session:</p>
+    <p>Point de caractéristique de départ: {{ session.pointsCaracPersos }}</p>
+    <ul>
+    {% for caracteristique in session.caracteristique %}
+        <li>{{ caracteristique }}</li>
+    {% endfor %}
+    </ul>     
+</div>
+<div>
+    <p>Compétence de la session:</p>
+    <p>Point de compétence de départ: {{ session.pointsCompPersos }}</p>
+    <ul>
+    {% for competence in session.competence %}
+        <li>{{ competence }}</li>
+    {% endfor %}
+    </ul>    
+</div>
+<div>
+    <p>Personnage de la session:</p>
+    <ul>
+    {% for perso in session.persos %}
+        <a href="{{ path('info_perso', {'id': perso.id}) }}">{{ perso.name }}</a>
+    {% endfor %}
+    </ul>    
+</div>
+{# 
+    <div>
+        <p>Historique des actions de la session:</p>
+        <ul>
+        {% for action in session.action %}
+            <li>{{ action }}</li>
+        {% endfor %}
+        </ul>    
+    </div> #}
+{% endblock %}
